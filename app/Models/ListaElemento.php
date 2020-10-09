@@ -5,9 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ListaElemento extends Model
+
+use Illuminate\Database\Eloquent\SoftDeletes; 
+use Illuminate\Notifications\Notifiable;
+
+class ListaElemento extends Model 
 {
-    protected $table = ['listas_elemtos'];
+    use HasFactory, SoftDeletes, Notifiable;
+
+    protected $table = 'listas_elementos';
     public $timestime = true;
 
     protected $dates = ['deleted_at'];

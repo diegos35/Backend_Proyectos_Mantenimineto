@@ -17,7 +17,7 @@ class CreateListasElementosTable extends Migration
             $table->increments('id');
             $table->string('nombre', 150)->comment('nombre del elemento');
             $table->text('descripcion')->comment('breve descripcion para el elemento creado');
-            $table->integer('prv_lista_tipo_id')->unsigned()->comment('referencia al tipo de lista que pertenece el elemento');
+            $table->integer('lista_tipo_id')->unsigned()->comment('referencia al tipo de lista que pertenece el elemento');
             $table->timestamps();
             $table->softDeletes();
         });

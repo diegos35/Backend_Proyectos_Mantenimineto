@@ -45,7 +45,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 1,
                 'nombre' => 'Lineal',
                 'descripcion' => 'Lineal',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -54,7 +54,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 2,
                 'nombre' => 'Regresivo decreciente',
                 'descripcion' => 'Regresivo decreciente',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -63,7 +63,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 3,
                 'nombre' => 'Regresivo creciente',
                 'descripcion' => 'Regresivo creciente',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -81,7 +81,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38960,
                 'nombre' => 'Edificaciones',
                 'descripcion' => 'Edificaciones',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -90,7 +90,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38961,
                 'nombre' => 'Embalses, Represas y Canales- Obras Civiles',
                 'descripcion' => 'Embalses, Represas y Canales- Obras Civiles',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -99,7 +99,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38962,
                 'nombre' => 'Embalses, Represas y Canales-Obras Control',
                 'descripcion' => 'Embalses, Represas y Canales-Obras Control',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -108,7 +108,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38963,
                 'nombre' => 'Generacion, Transmision, Produccion y Tratamiento',
                 'descripcion' => 'Generacion, Transmision, Produccion y Tratamiento',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -117,7 +117,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38964,
                 'nombre' => 'Torres, Postes y Accesorios',
                 'descripcion' => 'Torres, Postes y Accesorios',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -126,7 +126,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38965,
                 'nombre' => 'Redes, lineas y Cables aereos y sus accesorios',
                 'descripcion' => 'Redes, lineas y Cables aereos y sus accesorios',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -135,7 +135,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38966,
                 'nombre' => 'Plantas y Ductos',
                 'descripcion' => 'Plantas y Ductos',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -144,7 +144,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38967,
                 'nombre' => 'Maquinaria y Equipo',
                 'descripcion' => 'Maquinaria y Equipo',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -153,7 +153,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38968,
                 'nombre' => 'Barcos, Trenes, aviones y maquinaria',
                 'descripcion' => 'Barcos, Trenes, aviones y maquinaria',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -162,7 +162,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38969,
                 'nombre' => 'Equipo Medico y Cientifico',
                 'descripcion' => 'Equipo Medico y Cientifico',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -171,7 +171,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38970,
                 'nombre' => 'Muebles, Enseres y Equipos de Oficina',
                 'descripcion' => 'Muebles, Enseres y Equipos de Oficina',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -180,7 +180,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38971,
                 'nombre' => 'Equipo de Comunicacion y Accesorios',
                 'descripcion' => 'Equipo de Comunicacion y Accesorios',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -189,7 +189,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38972,
                 'nombre' => 'Equipo de Transporte, Traccion y Elevacion',
                 'descripcion' => 'Equipo de Transporte, Traccion y Elevacion',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -198,7 +198,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38973,
                 'nombre' => 'Equipo de Comedor, cocina, despensa y hoteler',
                 'descripcion' => 'Equipo de Comedor, cocina, despensa y hoteler',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -207,7 +207,7 @@ class ListaElementoSeeder extends Seeder
                 'id' => 38974,
                 'nombre' => 'Equipos de Computacion y accesorios',
                 'descripcion' => 'Equipos de Computacion y accesorios',
-                'prv_lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=>$idLista,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
