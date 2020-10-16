@@ -23,6 +23,7 @@ class ListaElementoSeeder extends Seeder
         $output->writeln('Procesando seeder de los elementos de las listas' );
         $output->writeln('******************************************************' );
         $this->agregarMetodoDepreciación();//Número del id del tipo = 1
+        $this->agregarTipoDepreciacion();
 
         // Variable para detectar la hora fin
         $tiempo_fin = microtime(true);
@@ -45,7 +46,8 @@ class ListaElementoSeeder extends Seeder
                 'id' => 1,
                 'nombre' => 'Lineal',
                 'descripcion' => 'Lineal',
-                'lista_tipo_id'=>$idLista,
+                'lista_tipo_id'=> $idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -54,7 +56,8 @@ class ListaElementoSeeder extends Seeder
                 'id' => 2,
                 'nombre' => 'Regresivo decreciente',
                 'descripcion' => 'Regresivo decreciente',
-                'lista_tipo_id'=>$idLista,
+                'lista_tipo_id' => $idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
@@ -64,6 +67,7 @@ class ListaElementoSeeder extends Seeder
                 'nombre' => 'Regresivo creciente',
                 'descripcion' => 'Regresivo creciente',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
         ]);
@@ -76,138 +80,153 @@ class ListaElementoSeeder extends Seeder
         $output = new ConsoleOutput();
         $output->writeln(' :Procesando los tipos de depreciación:.' );
         /* id del tipo de listos tipos de depreciación" */
-        $idLista = 78;
+        $idLista = 2;
         DB::table('listas_elementos')->updateOrInsert([
-                'id' => 38960,
+                'id' => 11,
                 'nombre' => 'Edificaciones',
                 'descripcion' => 'Edificaciones',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
         DB::table('listas_elementos')->updateOrInsert([
-                'id' => 38961,
+                'id' => 12,
                 'nombre' => 'Embalses, Represas y Canales- Obras Civiles',
                 'descripcion' => 'Embalses, Represas y Canales- Obras Civiles',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
-        DB::table('listas_elemtos')->updateOrInsert([
-                'id' => 38962,
+        DB::table('listas_elementos')->updateOrInsert([
+                'id' => 13,
                 'nombre' => 'Embalses, Represas y Canales-Obras Control',
                 'descripcion' => 'Embalses, Represas y Canales-Obras Control',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
-        DB::table('listas_elemtos')->updateOrInsert([
-                'id' => 38963,
+        DB::table('listas_elementos')->updateOrInsert([
+                'id' => 14,
                 'nombre' => 'Generacion, Transmision, Produccion y Tratamiento',
                 'descripcion' => 'Generacion, Transmision, Produccion y Tratamiento',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
-        DB::table('listas_elemtos')->updateOrInsert([
-                'id' => 38964,
+        DB::table('listas_elementos')->updateOrInsert([
+                'id' => 15,
                 'nombre' => 'Torres, Postes y Accesorios',
                 'descripcion' => 'Torres, Postes y Accesorios',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
         DB::table('listas_elementos')->updateOrInsert([
-                'id' => 38965,
+                'id' => 16,
                 'nombre' => 'Redes, lineas y Cables aereos y sus accesorios',
                 'descripcion' => 'Redes, lineas y Cables aereos y sus accesorios',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
         DB::table('listas_elementos')->updateOrInsert([
-                'id' => 38966,
+                'id' => 17,
                 'nombre' => 'Plantas y Ductos',
                 'descripcion' => 'Plantas y Ductos',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
         DB::table('listas_elementos')->updateOrInsert([
-                'id' => 38967,
+                'id' => 18,
                 'nombre' => 'Maquinaria y Equipo',
                 'descripcion' => 'Maquinaria y Equipo',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
         DB::table('listas_elementos')->updateOrInsert([
-                'id' => 38968,
+                'id' => 19,
                 'nombre' => 'Barcos, Trenes, aviones y maquinaria',
                 'descripcion' => 'Barcos, Trenes, aviones y maquinaria',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
         DB::table('listas_elementos')->updateOrInsert([
-                'id' => 38969,
+                'id' => 20,
                 'nombre' => 'Equipo Medico y Cientifico',
                 'descripcion' => 'Equipo Medico y Cientifico',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
         DB::table('listas_elementos')->updateOrInsert([
-                'id' => 38970,
+                'id' => 21,
                 'nombre' => 'Muebles, Enseres y Equipos de Oficina',
                 'descripcion' => 'Muebles, Enseres y Equipos de Oficina',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
-        DB::table('listas_elemtos')->updateOrInsert([
-                'id' => 38971,
+        DB::table('listas_elementos')->updateOrInsert([
+                'id' => 22,
                 'nombre' => 'Equipo de Comunicacion y Accesorios',
                 'descripcion' => 'Equipo de Comunicacion y Accesorios',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
         DB::table('listas_elementos')->updateOrInsert([
-                'id' => 38972,
+                'id' => 23,
                 'nombre' => 'Equipo de Transporte, Traccion y Elevacion',
                 'descripcion' => 'Equipo de Transporte, Traccion y Elevacion',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
         DB::table('listas_elementos')->updateOrInsert([
-                'id' => 38973,
+                'id' => 24,
                 'nombre' => 'Equipo de Comedor, cocina, despensa y hoteler',
                 'descripcion' => 'Equipo de Comedor, cocina, despensa y hoteler',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]
         );
         DB::table('listas_elementos')->updateOrInsert([
-                'id' => 38974,
+                'id' => 25,
                 'nombre' => 'Equipos de Computacion y accesorios',
                 'descripcion' => 'Equipos de Computacion y accesorios',
                 'lista_tipo_id'=>$idLista,
+                'activo' => 1,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]

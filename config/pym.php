@@ -14,6 +14,7 @@ return [
     'tipos_listas' => [
         'metodo_depreciacion'           => 1,
         'tipo_depreciacion'             => 2,
+        'estados_activos_fijos'         => 3,   
     ]
 ];
 

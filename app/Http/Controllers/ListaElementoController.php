@@ -67,8 +67,8 @@ class ListaElementoController extends Controller
     public function store(Request $request)
     {
         $listaElemento = new ListaElemento(); //nuevo registro
-        $listaElemento->descripcion = $request->input('descripcion');
         $listaElemento->nombre = $request->input('nombre');
+        $listaElemento->descripcion = $request->input('descripcion');
         $listaElemento->lista_tipo_id = $request->input('lista_tipo_id');
         if (! empty($request->input('lista_elemento_id'))) {
             $listaElemento->lista_elemento_id = $request->input('lista_elemento_id');
