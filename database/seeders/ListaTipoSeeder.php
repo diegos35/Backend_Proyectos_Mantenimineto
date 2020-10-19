@@ -15,8 +15,22 @@ class ListaTipoSeeder extends Seeder
      */
     public function run()
     {
+        // Variable para detectar la hora de inicio
+        $tiempo_inicio = microtime(true);
+
+        //Instancia para enviar mensajes por consola
+        $output = new ConsoleOutput();
+        $output->writeln('Procesando seeder de los tipos de listas' );
+        $output->writeln('******************************************************' );
+        DB::table('listas_tipos')->truncate();
         $this->tipoMetodoDepreciación();
         $this->tipoTipoDepreciacion(); 
+
+         // Variable para detectar la hora fin
+         $tiempo_fin = microtime(true);
+         // Cálculo para determinar el tiempo de ejecución
+         echo "\nTiempo de ejecución: ".round($tiempo_fin - $tiempo_inicio,2)." segundos\n\n";        
+ 
     }
 
     public function tipoMetodoDepreciación(){

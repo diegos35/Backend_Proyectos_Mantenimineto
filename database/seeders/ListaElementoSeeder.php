@@ -15,15 +15,17 @@ class ListaElementoSeeder extends Seeder
      */
     public function run()
     {   
-         // Variable para detectar la hora de inicio
+        // Variable para detectar la hora de inicio
         $tiempo_inicio = microtime(true);
 
         //Instancia para enviar mensajes por consola
         $output = new ConsoleOutput();
         $output->writeln('Procesando seeder de los elementos de las listas' );
         $output->writeln('******************************************************' );
+        DB::table('listas_elementos')->truncate();
         $this->agregarMetodoDepreciación();//Número del id del tipo = 1
-        $this->agregarTipoDepreciacion();
+        $this->agregarTipoDepreciacion();//Número del id del tipo = 2
+        $this->agregarEstadoActivoFijo();//Número del id del tipo = 3
 
         // Variable para detectar la hora fin
         $tiempo_fin = microtime(true);
@@ -232,6 +234,64 @@ class ListaElementoSeeder extends Seeder
             ]
         );
         $output->writeln(' :Elementos tipos de depreciación creados o actualizados satisfactoriamente:.');
+    }
+
+    public function agregarEstadoActivoFijo(){
+        $output = new ConsoleOutput(); 
+        $output->writeln(' :Procesando los estados de activos fijos:.' );
+        /* id del tipo de listos tipos de depreciación" */
+        $idLista = 3;
+        DB::table('listas_elementos')->updateOrInsert([
+            'id' => 36,
+            'nombre' => 'Dado baja',
+            'descripcion' => 'Dado baja	',
+            'lista_tipo_id'=> $idLista,
+            'activo' => 1,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ]   
+        );   
+        DB::table('listas_elementos')->updateOrInsert([
+            'id' => 37,
+            'nombre' => 'En bodega',
+            'descripcion' => 'En bodega',
+            'lista_tipo_id'=> $idLista,
+            'activo' => 1,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ]   
+        );
+        DB::table('listas_elementos')->updateOrInsert([
+            'id' => 38,
+            'nombre' => 'En mantenimiento',
+            'descripcion' => 'En mantenimiento',
+            'lista_tipo_id'=> $idLista,
+            'activo' => 1,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ]   
+        );
+        DB::table('listas_elementos')->updateOrInsert([
+            'id' => 39,
+            'nombre' => 'En servicio',
+            'descripcion' => 'En servicio',
+            'lista_tipo_id'=> $idLista,
+            'activo' => 1,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ]   
+        );  
+        DB::table('listas_elementos')->updateOrInsert([
+            'id' => 40,
+            'nombre' => 'No explotado',
+            'descripcion' => 'No explotado',
+            'lista_tipo_id'=> $idLista,
+            'activo' => 1,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ]   
+        );
+        $output->writeln(' :Elementos estados de activos fijos creados o actualizados satisfactoriamente:.');
     }
 
 }
