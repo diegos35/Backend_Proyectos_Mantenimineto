@@ -70,6 +70,7 @@ class ListaElementoController extends Controller
         $listaElemento->nombre = $request->input('nombre');
         $listaElemento->descripcion = $request->input('descripcion');
         $listaElemento->lista_tipo_id = $request->input('lista_tipo_id');
+        $listaElemento->activo = $request->activo;
         if (! empty($request->input('lista_elemento_id'))) {
             $listaElemento->lista_elemento_id = $request->input('lista_elemento_id');
         }
