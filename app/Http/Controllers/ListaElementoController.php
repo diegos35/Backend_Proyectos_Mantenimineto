@@ -65,17 +65,17 @@ class ListaElementoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $listaElemento = new ListaElemento(); //nuevo registro
         $listaElemento->nombre = $request->input('nombre');
         $listaElemento->descripcion = $request->input('descripcion');
-        $listaElemento->lista_tipo_id = $request->input('lista_tipo_id');
-        $listaElemento->activo = $request->activo;
+        $listaElemento->lista_tipo_id = config('pym.tipos_listas.'.$request->lista_tipo_id);
+        $listaElemento->activo = 1;
         if (! empty($request->input('lista_elemento_id'))) {
             $listaElemento->lista_elemento_id = $request->input('lista_elemento_id');
         }
-
         try {
+            dd($listaElemento);
             $listaElemento->save();
 
             
