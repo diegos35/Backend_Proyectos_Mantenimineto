@@ -25,7 +25,9 @@ class ListaTipoSeeder extends Seeder
         DB::table('listas_tipos')->truncate();
         $this->tipoMetodoDepreciación();
         $this->tipoTipoDepreciacion(); 
-
+	$this->estadoActivoFijo();
+	$this->unidadCompra();
+	$this->marcas();
          // Variable para detectar la hora fin
          $tiempo_fin = microtime(true);
          // Cálculo para determinar el tiempo de ejecución
@@ -61,4 +63,43 @@ class ListaTipoSeeder extends Seeder
         ]); 
     }
 
+    public function estadoActivoFijo(){
+    	$output = new ConsoleOutput();
+    	$output->writeln('Procesando seeder estados de activos fijos');
+	DB::table('listas_tipos')->updateOrInsert([
+	    'id'		=>'3',
+	    'nombre'		=>'Estado Activos Fijos',
+	    'descripcion'	=>'Estados de activos fijos',
+    	    'created_at'	=> date('Y-m-d H:i:s'),
+	    'updated_at'	=> date('Y-m-d H:i:s')  
+	]);
+    }
+    
+    public function UnidadCompra(){
+    	$output = new ConsoleOutput();
+    	$output->writeln('Procesando seeder unidad de compra');
+	DB::table('listas_tipos')->updateOrInsert([
+	    'id'		=>'4',
+	    'nombre'		=>'Unidad de compra',
+	    'descripcion'	=>'Unidad de compra',
+    	    'created_at'	=> date('Y-m-d H:i:s'),
+	    'updated_at'	=> date('Y-m-d H:i:s')  
+	]);
+
+    }
+    
+    public function marcas(){
+    	$output = new ConsoleOutput();
+    	$output->writeln('Procesando seeder para el tipo de lista marcas');
+	DB::table('listas_tipos')->updateOrInsert([
+	    'id'		=>'5',
+	    'nombre'		=>'Marca',
+	    'descripcion'	=>'Marca',
+    	    'created_at'	=> date('Y-m-d H:i:s'),
+	    'updated_at'	=> date('Y-m-d H:i:s')  
+	]);
+    }
+
+
 }
+

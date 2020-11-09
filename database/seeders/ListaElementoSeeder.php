@@ -26,8 +26,9 @@ class ListaElementoSeeder extends Seeder
         $this->agregarMetodoDepreciación();//Número del id del tipo = 1
         $this->agregarTipoDepreciacion();//Número del id del tipo = 2
         $this->agregarEstadoActivoFijo();//Número del id del tipo = 3
-
-        // Variable para detectar la hora fin
+	$this->agregarUnidadCompra();//Numero del id del tipo = 4
+	$this->agregarMarcas();//Numero del id del tipo  = 5
+	// Variable para detectar la hora fin
         $tiempo_fin = microtime(true);
         // Cálculo para determinar el tiempo de ejecución
         echo "\nTiempo de ejecución: ".round($tiempo_fin - $tiempo_inicio,2)." segundos\n\n";        
@@ -292,6 +293,78 @@ class ListaElementoSeeder extends Seeder
             ]   
         );
         $output->writeln(' :Elementos estados de activos fijos creados o actualizados satisfactoriamente:.');
+    }
+
+    public function agregarUnidadCompra(){
+	$output = new ConsoleOutput();
+        $output->writeln(' :Procesando las unidades de compra:.' );
+        /* id del tipo de lista de unidad de compra" */
+        $idLista = 4;
+
+   	 DB::table('listas_elementos')->updateOrInsert([
+            'id' => 50,
+            'nombre' => 'Unidad',
+            'descripcion' => 'Unidad',
+            'lista_tipo_id'=> $idLista,
+            'activo' => 1,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ]
+    	);
+	 DB::table('listas_elementos')->updateOrInsert([
+            'id' => 52,
+            'nombre' => 'Onza',
+            'descripcion' => 'Onza',
+            'lista_tipo_id'=> $idLista,
+            'activo' => 1,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ]
+    	);
+	 DB::table('listas_elementos')->updateOrInsert([
+            'id' => 53,
+            'nombre' => 'Milimetro',
+            'descripcion' => 'Milimetro',
+            'lista_tipo_id'=> $idLista,
+            'activo' => 1,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ]
+        );
+
+	$output->writeln(' :Elementos unidades de compra creados o actualzados satisfactoriamente: ');
+    } 
+
+	
+    public function agregarMarcas(){
+	$output = new ConsoleOutput();
+        $output->writeln(' :Procesando las marcas:.' );
+        /* id del tipo de lista de marca" */
+        $idLista = 5;
+
+   	 DB::table('listas_elementos')->updateOrInsert([
+            'id' => 60,
+            'nombre' => 'Samsung',
+            'descripcion' => 'Samsung',
+            'lista_tipo_id'=> $idLista,
+            'activo' => 1,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ]
+    	);
+	
+       	DB::table('listas_elementos')->updateOrInsert([
+            'id' => 61,
+            'nombre' => 'Toshiba',
+            'descripcion' => 'Toshiba',
+            'lista_tipo_id'=> $idLista,
+            'activo' => 1,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ]
+        );
+
+	$output->writeln(' :Elementos marcas creados o actualzados satisfactoriamente: ');
     }
 
 }
