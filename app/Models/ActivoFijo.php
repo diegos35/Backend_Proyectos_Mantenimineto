@@ -52,6 +52,6 @@ class ActivoFijo extends Model
         'dias_pendientes_depreciacion',
         'activo'
     ];
-    protected $hiden = ['created_at','update_at', 'deleted_at'];
+    protected $hidden = ['created_at','updated_at', 'deleted_at'];
 
 }
