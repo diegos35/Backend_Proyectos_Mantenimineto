@@ -29,4 +29,8 @@ Route::get('create', ['App\Http\Controllers\ListaElementoController', 'create'])
 Route::post('listaElemento', ['App\Http\Controllers\ListaElementoController', 'store']);
 Route::put('{id}', ['App\Http\Controllers\ListaElementoController', 'update']);
 Route::delete('{id}', ['App\Http\Controllers\ListaElementoController', 'destroy']);
+
+Route::post('fichaActivoFijo/data', ['App\Http\Controllers\FichaActivoFijo','getData']);
+
+
 }); 
