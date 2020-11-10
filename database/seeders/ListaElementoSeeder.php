@@ -26,8 +26,8 @@ class ListaElementoSeeder extends Seeder
         $this->agregarMetodoDepreciación();//Número del id del tipo = 1
         $this->agregarTipoDepreciacion();//Número del id del tipo = 2
         $this->agregarEstadoActivoFijo();//Número del id del tipo = 3
-	$this->agregarUnidadCompra();//Numero del id del tipo = 4
-	$this->agregarMarcas();//Numero del id del tipo  = 5
+	    $this->agregarUnidadCompra();//Numero del id del tipo = 4
+	    $this->agregarMarcas();//Numero del id del tipo  = 5
 	// Variable para detectar la hora fin
         $tiempo_fin = microtime(true);
         // Cálculo para determinar el tiempo de ejecución

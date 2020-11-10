@@ -54,4 +54,38 @@ class ActivoFijo extends Model
     ];
     protected $hidden = ['created_at','updated_at', 'deleted_at'];
 
+    //Relacion con las marcas 
+    public function marca()
+    {
+        return $this->belongsTo('App\Models\ListaElemento', 'marca_id', 'id');
+    }
+    
+    public function unidadCompra()
+    {
+        return $this->belongsTo(ListaElemento::class, 'unidad_mayor_id', 'id');
+
+    }
+
+    public function estadoActivoFijo()
+    {
+        return $this->belongsTo(ListaElemento::class, 'estado_activo_fijo');
+    } 
+
+    public function metodoDepreciacion()
+    {
+        return $this->belongsTo(ListaElemento::class, 'metodo_depreciacion' , 'id');
+    }
+
+    public function tipoDepreciacion()
+    {
+        return $this->belongsTo(ListaElemento::class, 'tipo_depreciacion', 'id');
+    }
+
+    //relacion del activo fijo si tien un componente Hijo
+    public function compuestoDe()
+    {
+        return  $this->belongsTo(ActivoFijo::class, 'compuesto_de', 'id');
+
+    }
+
 }
