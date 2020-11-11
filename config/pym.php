@@ -15,6 +15,8 @@ return [
         'metodo_depreciacion'           => 1,
         'tipo_depreciacion'             => 2,
         'estados_activos_fijos'         => 3,   
+        'unidad_compra'                 => 4,
+        'marcas'                        => 5,
     ]
 ];
 
