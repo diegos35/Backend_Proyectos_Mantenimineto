@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 
+use App\Models\Producto;
+use App\Models\ListaElemento;
+
+
 class ActivoFijo extends Model
 {
     use HasFactory, SoftDeletes, Notifiable;
@@ -53,7 +57,10 @@ class ActivoFijo extends Model
         'activo'
     ];
     protected $hidden = ['created_at','updated_at', 'deleted_at'];
-
+    
+    public function producto(){
+        return $this->belongsTo(Producto::class, 'producto_id', 'id');
+    }
     //Relacion con las marcas 
     public function marca()
     {
