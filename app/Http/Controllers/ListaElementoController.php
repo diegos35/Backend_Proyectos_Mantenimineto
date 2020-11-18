@@ -75,7 +75,6 @@ class ListaElementoController extends Controller
             $listaElemento->lista_elemento_id = $request->input('lista_elemento_id');
         }
         try {
-            dd($listaElemento);
             $listaElemento->save();
 
             
