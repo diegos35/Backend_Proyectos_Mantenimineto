@@ -26,8 +26,10 @@ class ListaElementoSeeder extends Seeder
         $this->agregarMetodoDepreciación();//Número del id del tipo = 1
         $this->agregarTipoDepreciacion();//Número del id del tipo = 2
         $this->agregarEstadoActivoFijo();//Número del id del tipo = 3
-	    $this->agregarUnidadCompra();//Numero del id del tipo = 4
-	    $this->agregarMarcas();//Numero del id del tipo  = 5
+	    $this->agregarUnidadCompra();//Número del id del tipo = 4
+        $this->agregarMarcas();//Número del id del tipo  = 5
+        $this->agregarTipoDocumento();//Número del id del tipo  = 6
+        $this->agregarTipoGenero(); //Número del id del tipo  = 7
 	// Variable para detectar la hora fin
         $tiempo_fin = microtime(true);
         // Cálculo para determinar el tiempo de ejecución
@@ -35,15 +37,16 @@ class ListaElementoSeeder extends Seeder
 
     }
      /**
-     * @abstract Metodo para ejecutar los inserts de los tipos de método de depreciación.
-     *           Los tipos de método de depreciación van desde el 1 al 3 con registros efectivos
+     * Método para ejecutar los inserts de los tipos de método de depreciación.
+     *           Los tipos de depreciación van desde el 1 al 3 con registros efectivos
+     *           y desde el  4 al 10  para registros nuevos
      *           
      * @return void
      */
     public function agregarMetodoDepreciación() {
         $output = new ConsoleOutput();
         $output->writeln(' :Procesando los tipos de método de depreciación:.' );
-        /* id del tipo de listos tipos de método de depreciación" */
+        /* id del tipo de lista  método de depreciación" */
         $idLista = 1;
         DB::table('listas_elementos')->updateOrInsert([
                 'id' => 1,
@@ -78,11 +81,16 @@ class ListaElementoSeeder extends Seeder
 
     }
 
-
+    /**
+     * Método para ejecutar los inserts de los tipos de depreciación.
+     *           Los tipos de  depreciación van desde el 11 al 25 con registros efectivos
+     *           y desde el  26 al 35  para registros nuevos
+     * @return void
+     */
     public function agregarTipoDepreciacion() {
         $output = new ConsoleOutput();
         $output->writeln(' :Procesando los tipos de depreciación:.' );
-        /* id del tipo de listos tipos de depreciación" */
+        /* id del tipo de lista tipo de depreciación" */
         $idLista = 2;
         DB::table('listas_elementos')->updateOrInsert([
                 'id' => 11,
@@ -237,10 +245,16 @@ class ListaElementoSeeder extends Seeder
         $output->writeln(' :Elementos tipos de depreciación creados o actualizados satisfactoriamente:.');
     }
 
+    /**
+     * Método para ejecutar los inserts de los estados de activos fijos.
+     *           Los estados de activos fijos van desde el 36 al 40 con registros efectivos
+     *           y desde el 41 al 49 para registros nuevos
+     * @return void
+     */
     public function agregarEstadoActivoFijo(){
         $output = new ConsoleOutput(); 
         $output->writeln(' :Procesando los estados de activos fijos:.' );
-        /* id del tipo de listos tipos de depreciación" */
+        /* id del tipo de lista estado de activos fijos" */
         $idLista = 3;
         DB::table('listas_elementos')->updateOrInsert([
             'id' => 36,
@@ -295,9 +309,12 @@ class ListaElementoSeeder extends Seeder
         $output->writeln(' :Elementos estados de activos fijos creados o actualizados satisfactoriamente:.');
     }
 
+    /** Método para ejecutar los insert de las unidades de compra
+     * 
+     */
     public function agregarUnidadCompra(){
 	$output = new ConsoleOutput();
-        $output->writeln(' :Procesando las unidades de compra:.' );
+        $output->writeln(' :Procesando las unidades de compra:' );
         /* id del tipo de lista de unidad de compra" */
         $idLista = 4;
 
@@ -367,4 +384,114 @@ class ListaElementoSeeder extends Seeder
 	$output->writeln(' :Elementos marcas creados o actualzados satisfactoriamente: ');
     }
 
+     /**
+     * Metodo para ejecutar los inserts de los tipos de documentos.
+     *           Los tipos de documentos van desde el 70 al 75 con registros efectivos
+     *           y desde el 76 al 84 para registros nuevos
+     * @return void
+     */ 
+    public function agregarTipoDocumento(){
+        $output = new ConsoleOutput();
+        $output->writeln(' :Procesando los tipos de documentos de indentificación:.' );
+            /* id del tipo de lista de documento" */
+            $idLista = 6;
+            DB::table('listas_elementos')->updateOrInsert([
+                'id' => 70,
+                'nombre' => 'AS',
+                'descripcion' => 'Adulto sin indentidad',
+                'lista_tipo_id'=> $idLista,
+                'activo' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                ]
+            );
+            DB::table('listas_elementos')->updateOrInsert([
+                'id' => 71,
+                'nombre' => 'RC',
+                'descripcion' => 'Registro civil de nacimiento',
+                'lista_tipo_id'=> $idLista,
+                'activo' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                ]
+            );
+            DB::table('listas_elementos')->updateOrInsert([
+                'id' => 72,
+                'nombre' => 'TI',
+                'descripcion' => 'Tarjeta de identidad',
+                'lista_tipo_id'=> $idLista,
+                'activo' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                ]
+            );
+            DB::table('listas_elementos')->updateOrInsert([
+                'id' => 73,
+                'nombre' => 'CC',
+                'descripcion' => 'Cédula de ciudadania',
+                'lista_tipo_id'=> $idLista,
+                'activo' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                ]
+            );
+            DB::table('listas_elementos')->updateOrInsert([
+                'id' => 74,
+                'nombre' => 'CE',
+                'descripcion' => 'Cédula de extranjería',
+                'lista_tipo_id'=> $idLista,
+                'activo' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                ]
+            );
+            DB::table('listas_elementos')->updateOrInsert([
+                'id' => 75,
+                'nombre' => 'NIT',
+                'descripcion' => 'NIT',
+                'lista_tipo_id'=> $idLista,
+                'activo' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                ]
+            );
+
+        $output->writeln(' :Elementos tipos de documentos creados o actualzados satisfactoriamente: ');
+        }
+    
+    /**
+     * Metodo para ejecutar los inserts de los tipos de genero.
+     *           Los tipos de genero van desde el 85 al  con registros efectivos
+     *           y desde el 76 al 84 para registros nuevos
+     * @return void
+     */ 
+    public  function agregarTipoGenero(){
+        $output = new ConsoleOutput();
+        $output->writeln(' :Procesando los tipos de generos:.' );
+        /* id del tipo de genero" */
+        $idLista = 7;
+
+        DB::table('listas_elementos')->updateOrInsert([
+            'id' =>  85,
+            'nombre'=>'Femenino',
+            'descripcion'=>'Femenino',
+            'lista_tipo_id'=>$idLista,
+            'activo' => 1,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
+            ]
+        );
+        DB::table('listas_elementos')->updateOrInsert([
+            'id' =>  86,
+            'nombre'=>'Masculino',
+            'descripcion'=>'Masculino',
+            'lista_tipo_id'=>$idLista,
+            'activo' => 1,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
+            ]
+        );
+
+    $output->writeln(' :Elementos tipos de genero creados o actualzados satisfactoriamente: ');
+    }
 }
