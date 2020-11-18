@@ -23,6 +23,7 @@ class CreateTercerosTable extends Migration
             $table->string('apellido2', 40);
             $table->unsignedInteger('genero_id')->comment('llave foranea de elemento de la lista');
             $table->tinyInteger('activo')->default('1');
+            $table->softDeletes();
             $table->timestamps();
 
         });
