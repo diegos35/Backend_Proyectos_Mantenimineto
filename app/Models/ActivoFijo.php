@@ -58,6 +58,11 @@ class ActivoFijo extends Model
     ];
     protected $hidden = ['created_at','updated_at', 'deleted_at'];
     
+    /*************************************************INICIO RELACIONES*************************************************/
+    /**
+     * Establece la relación o la llave foranea que específica el tipo de producto
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function producto(){
         return $this->belongsTo(Producto::class, 'producto_id', 'id');
     }

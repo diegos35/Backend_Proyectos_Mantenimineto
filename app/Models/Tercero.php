@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 
-class ResponsableActivoFijo extends Model
+class Tercero extends Model
 {
     use HasFactory, SoftDeletes, Notifiable;
 
@@ -15,23 +15,28 @@ class ResponsableActivoFijo extends Model
      * Específica a que tabla de la base de datos hace referencia el modelo
      * @var string
      */
-    protected $table = 'responsables_activos_fijos';
+    protected $table = 'terceros';
     
     /**
      * Específica si el modelo utiliza los campos created_at y updated_at
      * @var bool
      */
-    public $timestamps = true;
-
+    public $timestamp = true;
+  
     /**
      * Específica los campos a guardar en caso de una asignación en masa
      * @var array
      */
     protected $fillable = [
-        'tercero_id',
-        'activo_fijo_id'
+        'tipo_documento_id',
+        'numero_documento',
+        'nombre1',
+        'nombre2',
+        'apellido1',
+        'apellido2',
+        'genero_id',
     ];
-
+       
     /**
      * Específica  el campo de la tabla donde se guarda el registro del borrado suave (SoftDelete)
      * @var array
@@ -39,36 +44,37 @@ class ResponsableActivoFijo extends Model
     protected $date = [
         'deleted_at'
     ];
-
+    
     /**
      * Específica los campos a guardar en caso de una asignación en masa
      * @var array
      */
     protected $hidden = [
-        'created_at',
+        'created_at', 
         'updated_at',
         'deleted_at'
     ];
 
+    /*************************************************INICIO RELACIONES*************************************************/
     /**
-     *Relación con la llave foranea que específica el tipo de tercero
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function tercero(){
-        
-        return $this->belongsTo(Tercero::class, 'tecero_id', 'id');
-    }
-
-    /**
-     * Relación con la lleve foranea que específica el activo fijo
+     * Establece la relación o la llave foranea que específica el tipo de documento del tercero
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
 
-     public function activoFijo(){
-
-        return $this->belongsTo(ActivoFijo::class, 'activo_fijo_id', 'id');
+     public function tipoDocumento()
+     {
+         return $this->belongsTo(ListaElemento::class , 'tipo_documento_id', 'id');
      }
 
 
-}
+    /**
+     * Establece la relación o la llave foranea que específica del genero
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function genero()
+    {
+        return $this->belongsTo(ListaElemento::class, 'genero_id', 'id');
+    }
 
+
+}
