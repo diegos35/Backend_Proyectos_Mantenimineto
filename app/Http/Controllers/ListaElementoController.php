@@ -32,7 +32,7 @@ class ListaElementoController extends Controller
      * Mostrar la lista de todos los datos activos de Tipos de Lista en un Datatable.
      * @param int $elemento
      * @return Response
-     * @throws \Exception
+     * 
      */
     public function getData($elemento)
     {
