@@ -33,4 +33,7 @@ Route::delete('{id}', ['App\Http\Controllers\ListaElementoController', 'destroy'
 Route::post('fichaActivoFijo/data', ['App\Http\Controllers\FichaActivoFijo','getData']);
 
 
+Route::post('responsableacf/data', ['App\Http\Controllers\ResponsableActivoFijo','getData']);
+
+
 }); 

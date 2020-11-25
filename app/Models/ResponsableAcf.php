@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 
-class ResponsableActivoFijo extends Model
+class ResponsableAcf extends Model
 {
     use HasFactory, SoftDeletes, Notifiable;
 
