@@ -17,6 +17,7 @@ return [
         'estados_activos_fijos'         => 3,   
         'unidad_compra'                 => 4,
         'marcas'                        => 5,
+        'tipo_documento'                => 6,
     ]
 ];
 

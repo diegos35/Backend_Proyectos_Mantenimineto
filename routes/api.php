@@ -36,5 +36,7 @@ Route::post('fichaActivoFijo/data', ['App\Http\Controllers\FichaActivoFijo','get
 Route::post('responsableacf/data', ['App\Http\Controllers\ResponsableActivoFijo','getData']);
 Route::post('buscarTercero/', ['App\Http\Controllers\ResponsableActivoFijo','buscarTercero']);
 
+Route::get('listas', ['App\Http\Controllers\ResponsableActivoFijo','tiposDocumentos']);
+
 
 }); 

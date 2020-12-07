@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Tercero;
+use App\Models\ListaElemento;
 
 class ResponsableActivoFijo extends Controller
 {
@@ -34,7 +35,16 @@ class ResponsableActivoFijo extends Controller
             'apellido1',
             'apellido2',
             );  
-        //Filtros    
+        //Filtros
+        if ($request->tipo_documento_id) {
+            $terceros->where('tipo_documento_id', 'like', '%'. $request->tipo_documento_id . '%');
+        }
+        if ($request->numero_documento) {
+            $terceros->where('numero_documento', 'like', '%'. $request->numero_documento. '%');
+        }
+        if ($request->nombre1) {
+            $terceros->where('nombre1', 'like', '%'. $request->nombre1 . '%');
+        }    
         if ($request->nombre1) {
             $terceros->where('nombre1', 'like', '%'. $request->nombre1 . '%');
         }
@@ -49,5 +59,21 @@ class ResponsableActivoFijo extends Controller
         }
 
         return datatables()->eloquent($terceros)->toJson();
+    }
+
+    public function tiposDocumentos(){
+        
+        $id = config('pym.tipos_listas.tipo_documento');
+        $tiposDocumentos =  ListaElemento::withTrashed()->where('lista_tipo_id', $id)->whereNull('deleted_at')->get();
+        $response = array(
+            'status'=> 'success',
+            'code'  =>  200,
+            'listas'=>[
+                'tipos_documentos'=> $tiposDocumentos,
+            ]
+        );
+
+        return response()->json($response);
+    
     }
 }
