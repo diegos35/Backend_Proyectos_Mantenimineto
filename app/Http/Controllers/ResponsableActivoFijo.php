@@ -28,14 +28,15 @@ class ResponsableActivoFijo extends Controller
     public function buscarTercero(Request $request){
          $terceros = Tercero::withoutTrashed()
             ->leftjoin('listas_elementos as elementos', 'terceros.tipo_documento_id', '=', 'elementos.id')
-            ->select(
-            'elementos.nombre as cedula',   
-            'numero_documento',
-            'nombre1',
-            'nombre2',
-            'apellido1',
-            'apellido2',
-            );  
+                ->select(
+                    'terceros.id',
+                    'elementos.nombre as tipo_identificacion',   
+                    DB::raw("CONCAT(elementos.nombre,' - ',numero_documento) AS numero_documento"),
+                    'nombre1',
+                    'nombre2',
+                    'apellido1',
+                    'apellido2',
+                )->whereNotIn('terceros.id', $request->ignorarTerceros);  
         //Filtros
         if ($request->tipo_documento_id) {
             $terceros->where('tipo_documento_id', 'like', '%'. $request->tipo_documento_id . '%');
