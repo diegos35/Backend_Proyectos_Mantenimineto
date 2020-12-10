@@ -17,6 +17,7 @@ class ResponsableActivoFijo extends Controller
             ->leftJoin('terceros as tercero', 'responsables_activos_fijos.tercero_id', '=', 'tercero.id')
             ->leftJoin('listas_elementos as elementos','tercero.tipo_documento_id','=','elementos.id')
             ->select(
+             'tercero.id as id',   
             'tercero.activo As activo',
             DB::raw("CONCAT(elementos.nombre,' - ',tercero.numero_documento,' - ',tercero.nombre1, ' ', tercero.nombre2, ' ', tercero.apellido1, ' ', tercero.apellido2)AS empleado"),
         );
