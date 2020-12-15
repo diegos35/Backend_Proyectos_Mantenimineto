@@ -38,7 +38,9 @@ class ListaElementoController extends Controller
     {
         $id = config('pym.tipos_listas.' . $elemento);
         $elements = ListaElemento::withTrashed()->where('lista_tipo_id', $id)->whereNull('deleted_at')->get();
-        return DataTables::of($elements)->toJson(); 
+        
+        return DataTables::of($elements)
+        ->with('tipo_lista_id',$id)->toJson(); 
     }
 
     /**
@@ -49,8 +51,6 @@ class ListaElementoController extends Controller
     public function create()
     {
         $tiposListas = ListaTipo::withoutTrashed()->orderBy('nombre', 'ASC')->get();
-        $fechaPrimerRegistro = ListaElemento::withoutTrashed()->orderBy('created_at', 'ASC')->first();
-
         $response = [
             'tipos_listas'          => $tiposListas,
         ];
@@ -69,8 +69,8 @@ class ListaElementoController extends Controller
         $listaElemento = new ListaElemento(); //nuevo registro
         $listaElemento->nombre = $request->input('nombre');
         $listaElemento->descripcion = $request->input('descripcion');
-        $listaElemento->lista_tipo_id = config('pym.tipos_listas.'.$request->lista_tipo_id);
-        $listaElemento->activo = 1;
+        $listaElemento->lista_tipo_id = $request->lista_tipo_id;
+        $listaElemento->activo = $request->activo;
         if (! empty($request->input('lista_elemento_id'))) {
             $listaElemento->lista_elemento_id = $request->input('lista_elemento_id');
         }
@@ -148,10 +148,10 @@ class ListaElementoController extends Controller
     
         $listaElemento = ListaElemento::find($id); //editar registro
         
-        $listaElemento->descripcion = $request->input('descripcion');
-        $listaElemento->nombre = $request->input('nombre');
-        $listaElemento->lista_tipo_id = $request->input('lista_tipo_id');
-
+        $listaElemento->descripcion = $request->descripcion;
+        $listaElemento->nombre = $request->nombre;
+        $listaElemento->lista_tipo_id = $request->lista_tipo_id;
+        $listaElemento->activo = $request->activo;
         
         try {
             $listaElemento->save();
