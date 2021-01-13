@@ -30,7 +30,10 @@ class ListaElementoSeeder extends Seeder
         $this->agregarMarcas();//Número del id del tipo  = 5
         $this->agregarTipoDocumento();//Número del id del tipo  = 6
         $this->agregarTipoGenero(); //Número del id del tipo  = 7
-	// Variable para detectar la hora fin
+        $this->agregarTipoProducto();//Número del id del tipo  = 8
+        
+        
+        // Variable para detectar la hora fin
         $tiempo_fin = microtime(true);
         // Cálculo para determinar el tiempo de ejecución
         echo "\nTiempo de ejecución: ".round($tiempo_fin - $tiempo_inicio,2)." segundos\n\n";        
@@ -493,5 +496,50 @@ class ListaElementoSeeder extends Seeder
         );
 
     $output->writeln(' :Elementos tipos de genero creados o actualzados satisfactoriamente: ');
+    }
+
+     /**
+     * Metodo para ejecutar los inserts de los tipos de genero.
+     *           Los tipos de genero van desde el 85 al  con registros efectivos
+     *           y desde el 76 al 84 para registros nuevos
+     * @return void
+     */ 
+    public  function agregarTipoProducto(){
+        $output = new ConsoleOutput();
+        $output->writeln(' :Procesando los tipos de productos:.' );
+        /* id del tipo de genero" */
+        $idLista = 8;
+
+        DB::table('listas_elementos')->updateOrInsert([
+            'id' =>  95,
+            'nombre'=>'Bienes de consumo',
+            'descripcion'=>'Bienes de consumo',
+            'lista_tipo_id'=>$idLista,
+            'activo' => 1,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
+            ]
+        );
+        DB::table('listas_elementos')->updateOrInsert([
+            'id' =>  96,
+            'nombre'=>'Activo Fijo',
+            'descripcion'=>'Activo Fijo',
+            'lista_tipo_id'=>$idLista,
+            'activo' => 1,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
+            ]
+        );
+        DB::table('listas_elementos')->updateOrInsert([
+            'id' =>  97,
+            'nombre'=>'Servicio',
+            'descripcion'=>'Servicio',
+            'lista_tipo_id'=>$idLista,
+            'activo' => 1,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
+            ]
+        );
+    $output->writeln(' :Elementos tipos de producto creados o actualzados satisfactoriamente: ');
     }
 }

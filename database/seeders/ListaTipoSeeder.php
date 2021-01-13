@@ -31,6 +31,7 @@ class ListaTipoSeeder extends Seeder
         $this->marcas();
         $this->tipoDocumento();
         $this->tipoGenero();
+        $this->tipoProducto();
 
          // Variable para detectar la hora fin
          $tiempo_fin = microtime(true);
@@ -130,6 +131,19 @@ class ListaTipoSeeder extends Seeder
                 'id'                => '7',
                 'nombre'            => 'Género',
                 'descripcion'       => 'Género',
+                'created_at'        => date('Y-m-d H:i:s'),
+                'updated_at'        => date('Y-m-d H:i:s'),
+            ]
+        );
+    }
+
+    private function tipoProducto(){
+        $output = new ConsoleOutput();
+        $output->writeln('Procesando seeder de los tipos de producto');
+        DB::table('listas_tipos')->updateOrInsert([
+                'id'                => '8',
+                'nombre'            => 'Tipo de producto',
+                'descripcion'       => 'Tipo de producto',
                 'created_at'        => date('Y-m-d H:i:s'),
                 'updated_at'        => date('Y-m-d H:i:s'),
             ]
