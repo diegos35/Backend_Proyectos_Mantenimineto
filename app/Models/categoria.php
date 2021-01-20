@@ -23,7 +23,7 @@ class categoria extends Model
     protected $fillable =  [    
         'nombre',
         'tipo_producto_id',
-        'categoria_id',
+        //'categoria_id',
         'tipo_depreciacion',
         'metodo_depreciacion',
         'valor_salvamento'
@@ -39,10 +39,10 @@ class categoria extends Model
         return $this->belongsTo(ListaElemento::class, 'tipo_producto_id', 'id');
     }
 
-    public function categoriaHijas(){
+    // public function categoriaHijas(){
 
-        return $this->belongsTo(Categoria::class, 'tipo_producto_id', 'id');
-    }
+    //     return $this->belongsTo(Categoria::class, 'tipo_producto_id', 'id');
+    // }
 
     public function metodoDepreciacion()
     {

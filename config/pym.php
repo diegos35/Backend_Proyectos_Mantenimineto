@@ -18,6 +18,7 @@ return [
         'unidad_compra'                 => 4,
         'marcas'                        => 5,
         'tipo_documento'                => 6,
+        'tipo_producto'                 => 8,
     ]
 ];
 

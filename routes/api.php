@@ -38,5 +38,10 @@ Route::post('buscarTercero/', ['App\Http\Controllers\ResponsableActivoFijo','bus
 
 Route::get('listas', ['App\Http\Controllers\ResponsableActivoFijo','tiposDocumentos']);
 
+Route::post('categoria/data', ['App\Http\Controllers\CategoriaController','getData']);
+Route::post('categoria/{id?}', ['App\Http\Controllers\CategoriaController','store']);
+Route::delete('categoria/{id}', ['App\Http\Controllers\CategoriaController', 'destroy']);
+Route::get('categoria/{id}', ['App\Http\Controllers\CategoriaController','show']);
+Route::put('categoria/{id}', ['App\Http\Controllers\CategoriaController', 'update']);
 
 }); 
