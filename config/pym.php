@@ -19,7 +19,14 @@ return [
         'marcas'                        => 5,
         'tipo_documento'                => 6,
         'tipo_producto'                 => 8,
-    ]
+        'tipo_tercero'                  => 9
+    ],
+
+    'tipos_tercero' => [
+        'responsable_activo_fijo'       => 100,
+        'empleado'                      => 102,
+        'proveedor'                     => 103
+    ],
 ];
 
 

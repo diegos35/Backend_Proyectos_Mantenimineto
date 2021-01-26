@@ -9,18 +9,21 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Tercero;
 use App\Models\ListaElemento;
+use App\Models\ResponsableAcf;
+use App\Models\TercerosTipos;
 
 class ResponsableActivoFijo extends Controller
 {
     public function getData(){
-        $responablesActivoFijo = DB::table('responsables_activos_fijos')->whereNull('responsables_activos_fijos.deleted_at')
-            ->leftJoin('terceros as tercero', 'responsables_activos_fijos.tercero_id', '=', 'tercero.id')
-            ->leftJoin('listas_elementos as elementos','tercero.tipo_documento_id','=','elementos.id')
-            ->select(
-             'tercero.id as id',   
+        $responablesActivoFijo  = DB::table('terceros_tipos')->whereNull('terceros_tipos.deleted_at')
+        ->leftJoin('terceros as tercero', 'terceros_tipos.tercero_id', '=', 'tercero.id')
+        ->leftJoin('listas_elementos as elementos','tercero.tipo_documento_id','=','elementos.id')
+        ->select(
+            'terceros_tipos.tercero_id AS id',
             'tercero.activo As activo',
             DB::raw("CONCAT(elementos.nombre,' - ',tercero.numero_documento,' - ',tercero.nombre1, ' ', tercero.nombre2, ' ', tercero.apellido1, ' ', tercero.apellido2)AS empleado"),
-        );
+        )
+        ->where('tipo_tercero_id', config('pym.tipos_tercero.responsable_activo_fijo'));
         return DataTables::of($responablesActivoFijo)->toJson(); 
     }
 
@@ -78,4 +81,48 @@ class ResponsableActivoFijo extends Controller
         return response()->json($response);
     
     }
+
+
+    public function guardarResponsableActivoFijo(Request $request){
+        
+        $terceros = $request->com_tercero_id;
+        foreach($terceros as $responsables){
+            $responsable = new TercerosTipos();
+            $responsable->tercero_id = $responsables;
+            $responsable->tipo_tercero_id = config('pym.tipos_tercero.responsable_activo_fijo');
+            $responsable->save();
+        }
+        $response = [
+            'status' => 'success',
+            'code' => 200,
+            'message'  => 'Registro creado exitosamente',
+        ];
+
+     return response()->json($response);
+    }
+
+    public function destroy($id){
+        $validaractivofijo = ResponsableAcf::withoutTrashed()->where('tercero_id', $id)->count();
+        if ($validaractivofijo <=0){
+            $responsable = TercerosTipos::withoutTrashed()
+            ->where(['tercero_id' => $id, 'tipo_tercero_id' => config('pym.tipos_tercero.responsable_activo_fijo')])->get()->each->delete();
+            dd($responsable);
+            $responsable->delete(); 
+                $response = [
+                    'status' => 'success',
+                    'code'   => 200,
+                    'message'    => 'Registro eliminado exitosamente'
+                ];
+            }else{
+                $response = array(
+                    'message' => 'El responsable tiene a cargo activos fijos',
+                    'status' =>
+                    'error'
+                );
+                return response()->json($response, 400);
+            }
+            return response()->json($response);
+    }
+
+
 }

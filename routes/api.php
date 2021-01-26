@@ -35,8 +35,10 @@ Route::post('fichaActivoFijo/data', ['App\Http\Controllers\FichaActivoFijo','get
 
 Route::post('responsableacf/data', ['App\Http\Controllers\ResponsableActivoFijo','getData']);
 Route::post('buscarTercero/', ['App\Http\Controllers\ResponsableActivoFijo','buscarTercero']);
-
 Route::get('listas', ['App\Http\Controllers\ResponsableActivoFijo','tiposDocumentos']);
+Route::post('guardarResponsableActivoFijo', ['App\Http\Controllers\ResponsableActivoFijo','guardarResponsableActivoFijo']);
+Route::delete('responsableAcf/{id}', ['App\Http\Controllers\ResponsableActivoFijo','destroy']);
+
 
 Route::post('categoria/data', ['App\Http\Controllers\CategoriaController','getData']);
 Route::post('categoria/{id?}', ['App\Http\Controllers\CategoriaController','store']);
