@@ -31,6 +31,7 @@ class ListaElementoSeeder extends Seeder
         $this->agregarTipoDocumento();//Número del id del tipo  = 6
         $this->agregarTipoGenero(); //Número del id del tipo  = 7
         $this->agregarTipoProducto();//Número del id del tipo  = 8
+        $this->agregarTipoTercero();
         
         
         // Variable para detectar la hora fin
@@ -541,5 +542,50 @@ class ListaElementoSeeder extends Seeder
             ]
         );
     $output->writeln(' :Elementos tipos de producto creados o actualzados satisfactoriamente: ');
+    }
+
+     /**
+     * Metodo para ejecutar los inserts de los tipos de genero.
+     *           Los tipos de genero van desde el 85 al  con registros efectivos
+     *           y desde el 76 al 84 para registros nuevos
+     * @return void
+     */ 
+    public  function agregarTipoTercero(){
+        $output = new ConsoleOutput();
+        $output->writeln(' :Procesando los tipos de terceros:' );
+        /* id del tipo de genero" */
+        $idLista = 9;
+
+        DB::table('listas_elementos')->updateOrInsert([
+            'id' =>  100,
+            'nombre'=>'Responsble activo fijo',
+            'descripcion'=>'Responsble activo fijo',
+            'lista_tipo_id'=>$idLista,
+            'activo' => 1,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
+            ]
+        );
+        DB::table('listas_elementos')->updateOrInsert([
+            'id' =>  102,
+            'nombre'=>'Empleado',
+            'descripcion'=>'Empleado',
+            'lista_tipo_id'=>$idLista,
+            'activo' => 1,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
+            ]
+        );
+        DB::table('listas_elementos')->updateOrInsert([
+            'id' =>  103,
+            'nombre'=>'Proveedor',
+            'descripcion'=>'Proveedor',
+            'lista_tipo_id'=>$idLista,
+            'activo' => 1,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
+            ]
+        );
+    $output->writeln(' :Elementos tipos de terceros creados o actualzados satisfactoriamente: ');
     }
 }

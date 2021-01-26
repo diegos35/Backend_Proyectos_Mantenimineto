@@ -32,6 +32,7 @@ class ListaTipoSeeder extends Seeder
         $this->tipoDocumento();
         $this->tipoGenero();
         $this->tipoProducto();
+        $this->tipoTercero();
 
          // Variable para detectar la hora fin
          $tiempo_fin = microtime(true);
@@ -150,6 +151,17 @@ class ListaTipoSeeder extends Seeder
         );
     }
 
-
+    private function tipoTercero(){
+        $output = new ConsoleOutput();
+        $output->writeln('Procesando seeder de los tipos de tercero');
+        DB::table('listas_tipos')->updateOrInsert([
+                'id'                => '9',
+                'nombre'            => 'Tipo de tercero',
+                'descripcion'       => 'Tipo de tercero',
+                'created_at'        => date('Y-m-d H:i:s'),
+                'updated_at'        => date('Y-m-d H:i:s'),
+            ]
+        );
+    }
 }
 
