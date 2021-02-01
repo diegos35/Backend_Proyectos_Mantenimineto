@@ -71,7 +71,7 @@ class CategoriaController extends Controller
             $mensaje = 'Registro actualizado exitosamente';
             
         }   
-        $categoria->categoria_id = 2;
+        $categoria->categoria_id = $request->categoria_id;
         $categoria->nombre = $request->nombre;
         $categoria->tipo_producto_id = $request->tipo_producto_id;  
         $categoria->metodo_depreciacion = $request->metodo_depreciacion;

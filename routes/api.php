@@ -46,4 +46,17 @@ Route::delete('categoria/{id}', ['App\Http\Controllers\CategoriaController', 'de
 Route::get('categoria/{id}', ['App\Http\Controllers\CategoriaController','show']);
 Route::put('categoria/{id}', ['App\Http\Controllers\CategoriaController', 'update']);
 
+
+
+Route::post('activofijo/data', ['App\Http\Controllers\productoAcfController','getData']);
+Route::post('activofijo/{id?}', ['App\Http\Controllers\productoAcfController','store']);
+Route::get('activofijo', ['App\Http\Controllers\productoAcfController', 'create']);
+Route::get('activofijo/{id}', ['App\Http\Controllers\productoAcfController','show']);
+Route::delete('activofijo/{id}', ['App\Http\Controllers\productoAcfController', 'destroy']);
+Route::put('activofijo/{id}', ['App\Http\Controllers\productoAcfController', 'update']);
+
+
+
+Route::post('activo_fijo/data', ['App\Http\Controllers\FichaActivoFijo','getData']);
+
 }); 

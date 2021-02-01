@@ -30,7 +30,7 @@ class ActivoFijo extends Model
         'compuesto_de',
         'descripcion',
         'marca_id',
-        'unidad_mayor_id',
+        'unidad_compra_id',
     	'numero_serie',
         'modelo',
         'valor_salvamento',
@@ -41,11 +41,11 @@ class ActivoFijo extends Model
         'numero_factura',
         'fecha_factura',
         'valor_compra',
-        'garantia',
+        'garantia',  //TODO
         'metodo_depreciacion',
         'tipo_depreciacion',
         'valor_depreciacion',
-        'deterioro',
+        'deterioro', //TODO
         'valor_actual',
         'avaluo',
         'fecha_salida_servicio',

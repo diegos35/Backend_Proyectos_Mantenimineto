@@ -26,7 +26,8 @@ class categoria extends Model
         //'categoria_id',
         'tipo_depreciacion',
         'metodo_depreciacion',
-        'valor_salvamento'
+        'porcentaje_salvamento',
+        'activo'
     ];   
     
     protected $hidden = [

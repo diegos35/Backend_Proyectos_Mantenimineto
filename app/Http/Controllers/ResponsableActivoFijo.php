@@ -24,6 +24,7 @@ class ResponsableActivoFijo extends Controller
             DB::raw("CONCAT(elementos.nombre,' - ',tercero.numero_documento,' - ',tercero.nombre1, ' ', tercero.nombre2, ' ', tercero.apellido1, ' ', tercero.apellido2)AS empleado"),
         )
         ->where('tipo_tercero_id', config('pym.tipos_tercero.responsable_activo_fijo'));
+        
         return DataTables::of($responablesActivoFijo)->toJson(); 
     }
 
@@ -106,7 +107,6 @@ class ResponsableActivoFijo extends Controller
         if ($validaractivofijo <=0){
             $responsable = TercerosTipos::withoutTrashed()
             ->where(['tercero_id' => $id, 'tipo_tercero_id' => config('pym.tipos_tercero.responsable_activo_fijo')])->get()->each->delete();
-            dd($responsable);
             $responsable->delete(); 
                 $response = [
                     'status' => 'success',

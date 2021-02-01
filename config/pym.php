@@ -27,6 +27,12 @@ return [
         'empleado'                      => 102,
         'proveedor'                     => 103
     ],
+
+    'tipos_producto' => [
+        'bienes_consumo'                => 95,
+        'activo_fijo'                   => 96,
+        'servicio'                      => 97
+    ],
 ];
 
 

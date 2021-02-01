@@ -15,11 +15,13 @@ class CreateProductosTable extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('codigo')->comment('codigo del producto');
             $table->unsignedBigInteger('categoria_id')->comment('id de la categoria a la que pertence el producto');
             $table->string('nombre')->comment('Nombre del producto');
             $table->string('descripcion')->comment('Descripción del producto');
-            $table->unsignedBigInteger('unidad_mayor_id')->comment('unidad de compra');
+            $table->unsignedBigInteger('unidad_compra_id')->comment('unidad de compra');
             $table->tinyInteger('activo');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

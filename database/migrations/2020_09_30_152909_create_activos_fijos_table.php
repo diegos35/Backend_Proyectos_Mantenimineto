@@ -24,7 +24,7 @@ class CreateActivosFijosTable extends Migration
             $table->integer('compuesto_de')->default(0)->comment('Id del activo fijo padre');
             $table->string('descripcion', 200)->comment('Descripción del activo fijo');
             $table->unsignedInteger('marca_id')->comment('Marca del activo fijo');
-            $table->unsignedInteger('unidad_mayor_id')->comment('Unidad de compra del activo fijo');
+            $table->unsignedInteger('unidad_compra_id')->comment('Unidad de compra del activo fijo');
             $table->string('numero_serie', 40)->comment('Número de serie del activo fijo');
             $table->string('modelo', 40)->comment('Modelo del activo fijo');
             $table->decimal('valor_salvamento', 20, 5)->nullable()->comment('Valor del salvamento del activo fijo');
@@ -35,19 +35,11 @@ class CreateActivosFijosTable extends Migration
             $table->string('numero_factura', 40)->nullable()->comment('Número de la factura de la compra del activo fijo');
             $table->date('fecha_factura')->nullable()->comment('Fecha de la factura de la compra del activo fijo');
             $table->decimal('valor_compra', 20, 5)->nullable()->comment('Valor de compra del activo fijo');
-            $table->json('garantia')->nullable()->comment('Información de la garantía del activo fijo');
             $table->unsignedInteger('metodo_depreciacion')->nullable()->comment('Método de depreciación del activo fijo');
             $table->unsignedInteger('tipo_depreciacion')->nullable()->comment('Tipo de depreciación del activo fijo');
-            $table->decimal('valor_depreciacion', 20, 5)->nullable()->comment('Valor de la depreciación del activo fijo');
             $table->decimal('deterioro', 20, 5)->nullable()->comment('Valor del deterioro del activo fijo');
             $table->decimal('valor_actual', 20, 5)->nullable()->comment('Valor actual del activo fijo');
-            $table->decimal('avaluo', 20, 5)->nullable()->comment('Avalúo del activo fijo');
-            $table->date('fecha_salida_servicio')->nullable()->comment('Fecha en la que el activo fijo se entregó al responsable');
             $table->unsignedInteger('vida_util')->nullable()->comment('Vida útil del activo fijo, en meses');
-            $table->unsignedInteger('meses_depreciados')->nullable()->comment('Meses depreciados del activo fijo');
-            $table->unsignedInteger('dias_depreciados')->nullable()->comment('Días depreciados del activo fijo');
-            $table->unsignedInteger('meses_pendientes_depreciacion')->nullable()->comment('Meses pendientes por depreciar del activo fijo');
-            $table->unsignedInteger('dias_pendientes_depreciacion')->nullable()->comment('Días pendientes por depreciar del activo fijo');
             $table->tinyInteger('activo');
             $table->timestamps();
             $table->softDeletes();
